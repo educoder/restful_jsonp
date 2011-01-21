@@ -1,5 +1,5 @@
-RESTful JSONP Railtie
-=====================
+RESTful JSONP
+============
 
 This is a Rails plugin (Railtie) that allows your existing RESTful controllers to work over JSONP.
 
@@ -16,11 +16,11 @@ Installation
 
 First, install the gem: 
 
-`gem install restful_jsonp_railtie`
+`gem install restful_jsonp`
 
 Then add this to your Rails app's `Gemfile`:
 
-`gem 'restful_jsonp_railtie', :require => 'restful_jsonp/railtie'`
+`gem 'restful_jsonp', :require => 'restful_jsonp/railtie'`
 
 Note that this only works for Rails 3. In principle you could try to swap in the RestfulJSONP::MethodOverride
 middleware into a Rails 2.3+ app, but this has not been tested.
