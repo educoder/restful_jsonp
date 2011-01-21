@@ -10,6 +10,16 @@ desired method in a special `_method` parameter.
 For example, to make a `PUT` request to `/users/1.json`, you would make a JSONP (`GET`) request to
 `/users/1.json?_method=PUT`.
 
+The plugin also adds a custom Responder for JSONP that automatically adds special behaviour to
+`respond_with` (via a custom `display` method). 
+
+For JSONP requests handled with `respond_with`:
+
+1. `:callback => param[:callback]` will be automatically added to the `render` options
+2. Error `:status` codes (e.g. `:unprocessable_entity`) will be changed to `:accepted`, 
+since error responses cannot be handled by JSONP. To detect errors in JSONP responses
+check for an `error` attribute in the returned data.
+
 
 Installation
 ------------
@@ -24,6 +34,11 @@ Then add this to your Rails app's `Gemfile`:
 
 Note that this only works for Rails 3. In principle you could try to swap in the RestfulJSONP::MethodOverride
 middleware into a Rails 2.3+ app, but this has not been tested.
+
+To enable the custom JSONP Responder, add this to your `ApplicationController` (or any
+controller that you want to enable the responder for):
+
+`self.responder = RestfulJSONP::JSONPResponder`
 
 
 How it Works
