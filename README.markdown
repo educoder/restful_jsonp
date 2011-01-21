@@ -51,3 +51,15 @@ or `GET` request.
 
 Note that this functionality is enabled for all requests, regardless of whether they are done
 via JSONP or otherwise.
+
+
+History
+-------
+
+##### 1.0.1
+
+* Fixed error response processing in JSONPResponder 
+
+##### 1.0.0
+
+* Initial release

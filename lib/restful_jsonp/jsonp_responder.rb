@@ -8,13 +8,15 @@ module RestfulJSONP
         # this is a JSONP request (note that JSONP is not done over XHR!)
 
         jsonp_options = {}
+        
+        status = given_options[:status] || options[:status]
 
         if (resource.respond_to?(:errors) && !resource.errors.empty?) ||
-            (given_options[:status] && ![:ok, :created].include?(given_options[:status]))
+            (status && ![:ok, :created].include?(status))
           jsonp_options[:status] = :accepted # we can't return an error HTTP response (e.g. 422 or 500) because it would be ignored :(
           resource = {
             :error => {
-              :status => given_options[:status],
+              :status => status,
               :data => resource.to_json
             }
           }
