@@ -1,6 +1,6 @@
 Gem::Specification.new do |gem|
   gem.name     = "restful_jsonp"
-  gem.version  = "1.0.1"
+  gem.version  = "1.0.2"
   gem.authors  = ["Matt Zukowski"]
   gem.email    = ["matt.zukowski@utoronto.ca"]
   gem.homepage = "http://github.com/educoder/restful_jsonp"

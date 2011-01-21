@@ -56,7 +56,7 @@ via JSONP or otherwise.
 History
 -------
 
-##### 1.0.1
+##### 1.0.2
 
 * Fixed error response processing in JSONPResponder 
 
