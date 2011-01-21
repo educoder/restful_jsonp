@@ -23,7 +23,7 @@ module RestfulJSONP
         jsonp_options[format] = resource
         jsonp_options[:callback] = controller.params[:callback]
 
-        render given_options.merge!(jsonp_options)
+        render options.merge!(given_options).merge!(jsonp_options)
       else
         # this is not a JSONP request; carry on
         super
