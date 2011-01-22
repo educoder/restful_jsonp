@@ -3,12 +3,16 @@ RESTful JSONP
 
 This is a Rails plugin (Railtie) that allows your existing RESTful controllers to work over JSONP.
 
+##### POST/PUT/DELETE
+
 REST is designed around the four HTTP request methods (`GET`, `POST`, `PUT`, and `DELETE`), but
 JSONP requests are always `GET`s. To get around this restriction, this Railtie lets you specify the
 desired method in a special `_method` parameter.
 
 For example, to make a `PUT` request to `/users/1.json`, you would make a JSONP (`GET`) request to
 `/users/1.json?_method=PUT`.
+
+##### Responder
 
 The plugin also adds a custom Responder for JSONP that automatically adds special behaviour to
 `respond_with` (via a custom `display` method). 
@@ -22,7 +26,7 @@ check for an `error` attribute in the returned data.
 
 
 Installation
-------------
+---------------
 
 First, install the gem: 
 
@@ -30,7 +34,7 @@ First, install the gem:
 
 Then add this to your Rails app's `Gemfile`:
 
-`gem 'restful_jsonp', :require => 'restful_jsonp/railtie'`
+`gem 'restful_jsonp'
 
 Note that this only works for Rails 3. In principle you could try to swap in the RestfulJSONP::MethodOverride
 middleware into a Rails 2.3+ app, but this has not been tested.
@@ -54,7 +58,7 @@ via JSONP or otherwise.
 
 
 History
--------
+---------
 
 ##### 1.0.2
 
